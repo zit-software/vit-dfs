@@ -72,8 +72,6 @@ class Maze {
 
 		const nextStates = this.findNextStates(current);
 
-		console.log(nextStates.map((e) => this.distance(e, this.target)));
-
 		const currentStep = {
 			current,
 			nextStates: [],
