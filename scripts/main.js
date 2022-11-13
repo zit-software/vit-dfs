@@ -9,11 +9,10 @@ function gameGenerate(width, height, delay) {
 	const maze = new Maze(map, start, target);
 
 	gameGui.init(maze, {
-		cellSize:
-			Math.min(
-				document.body.offsetHeight / cols,
-				document.body.offsetWidth / rows,
-			) - 10,
+		cellSize: Math.min(
+			(document.body.offsetHeight - 80) / cols,
+			(document.body.offsetWidth - 80) / rows,
+		),
 		delay,
 	});
 }
