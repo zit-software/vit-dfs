@@ -1,0 +1,15 @@
+{
+	"name": "maze",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:thangved/vit-dfs.git",
+	"author": "Kim Minh Thang <thangved02@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "rollup --config"
+	},
+	"devDependencies": {
+		"@rollup/plugin-html": "^1.0.1",
+		"rollup": "^3.3.0"
+	}
+}

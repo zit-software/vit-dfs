@@ -6,6 +6,7 @@ class GameGui {
 	}
 
 	init(element, maze = new Maze(), { cellSize = 50, delay = 500 } = {}) {
+		clearInterval(this.interval);
 		// Init values
 		this.element = element;
 		this.cellSize = cellSize;
@@ -31,7 +32,7 @@ class GameGui {
 					cell ? ' maze-grass' : ''
 				}" style="width: ${this.cellSize}px; height: ${
 					this.cellSize
-				}px"></div>`;
+				}px;"></div>`;
 			}
 
 			this.element.append(rowEl);
@@ -68,14 +69,15 @@ class GameGui {
 	}
 
 	play() {
+		clearInterval(this.interval);
 		this.drawRect(this.current);
-		this.maze.dfs();
+		this.maze.startDfs();
 		const steps = this.maze.steps;
 
-		const interval = setInterval(() => {
+		this.interval = setInterval(() => {
 			const step = steps.shift();
 
-			if (!step) return clearInterval(interval);
+			if (!step) return clearInterval(this.interval);
 
 			this.goto(step.current);
 

@@ -84,6 +84,13 @@ class Maze {
 
 		return false;
 	}
+	startDfs() {
+		this.path = [];
+		this.steps = [];
+		this.hashed = {};
+
+		return this.dfs();
+	}
 }
 
 export default Maze;

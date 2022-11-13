@@ -17,16 +17,17 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: url(../assets/images/Land.png) repeat;
-	background-size: 48px;
-	background: url(../assets/images/Water.png) repeat;
-	background-size: 64px;
-	animation: sprite_bg 5s linear infinite;
+	background-size: 150px;
 	padding: 40px;
 	flex-wrap: wrap;
 }
 
 .maze-game {
 	position: relative;
+	background: url(../assets/images/Water.png) repeat;
+	background-size: 150px;
+	animation: sprite_bg 5s linear infinite;
+	border-radius: 10px;
 }
 
 .maze-row {
@@ -94,6 +95,7 @@ body {
 	border-radius: 10px;
 	overflow: hidden;
 	min-width: 300px;
+	transition: 0.4s ease;
 }
 
 .game-menu-header {
