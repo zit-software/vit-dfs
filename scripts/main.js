@@ -2,18 +2,21 @@ import Maze from './maze.js';
 import GameGui from './game-gui.js';
 import mazeGenerator from './maze-generator.js';
 
-const { map, start, target, rows, cols } = mazeGenerator();
+const gameGui = new GameGui(document.getElementById('maze-game'));
 
-const maze = new Maze(map, start, target);
+function gameGenerate(width, height, delay) {
+	const { map, start, target, rows, cols } = mazeGenerator(width, height);
+	const maze = new Maze(map, start, target);
 
-const gameGui = new GameGui(document.getElementById('maze-game'), maze, {
-	cellSize:
-		Math.min(
-			document.body.offsetHeight / cols,
-			document.body.offsetWidth / rows,
-		) - 5,
-	delay: 500,
-});
+	gameGui.init(maze, {
+		cellSize:
+			Math.min(
+				document.body.offsetHeight / cols,
+				document.body.offsetWidth / rows,
+			) - 10,
+		delay,
+	});
+}
 
 const acceptButton = document.getElementById('maze-accept');
 
@@ -29,17 +32,7 @@ function handleAccept() {
 		document.getElementById('maze-delay').nextElementSibling.value,
 	);
 
-	const { map, start, target, rows, cols } = mazeGenerator(width, height);
-	const maze = new Maze(map, start, target);
-
-	gameGui.init(document.getElementById('maze-game'), maze, {
-		cellSize:
-			Math.min(
-				document.body.offsetHeight / cols,
-				document.body.offsetWidth / rows,
-			) - 5,
-		delay: delay,
-	});
+	gameGenerate(width, height, delay);
 }
 
 acceptButton.addEventListener('click', handleAccept);
@@ -47,3 +40,8 @@ acceptButton.addEventListener('click', handleAccept);
 document
 	.getElementById('maze-play')
 	.addEventListener('click', gameGui.play.bind(gameGui));
+
+document.getElementById('maze-login-play-btn').addEventListener('click', () => {
+	document.getElementById('maze-login').classList.add('hide');
+	handleAccept();
+});

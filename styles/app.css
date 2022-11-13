@@ -87,7 +87,6 @@ body {
 }
 
 .game-menu {
-	flex: 1;
 	margin: 20px;
 	height: 100%;
 	background: #ffffff;
@@ -148,4 +147,74 @@ body {
 
 .button-danger {
 	background: #ff1b6b;
+}
+
+.maze-login {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	transition: 0.6s ease;
+}
+
+.maze-login.hide {
+	transform: translateY(-100%);
+	opacity: 0;
+}
+
+.maze-login-vit {
+	width: 20%;
+	animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-duck {
+	width: 10%;
+	animation: vit_animation 1s ease infinite alternate;
+}
+
+.maze-login-dfs {
+	width: 40%;
+	animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.maze-login-play-btn {
+	width: 200px;
+	cursor: pointer;
+	transition: 0.4s ease;
+}
+
+.maze-login-play-btn:hover {
+	transform: scale(1.2);
+}
+.maze-login-play-btn:active {
+	transform: scale(1.1);
+}
+
+@keyframes vit_animation {
+	0%,
+	99% {
+	}
+	100% {
+		transform: rotate(10deg);
+	}
+}
+
+@keyframes dfs_animation {
+	from {
+	}
+	to {
+		transform: translateY(20px);
+	}
 }

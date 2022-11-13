@@ -1,14 +1,20 @@
 import Maze from './maze.js';
+import GameAudio from './game-audio.js';
 
 class GameGui {
 	constructor(element, maze = new Maze(), { cellSize, delay } = {}) {
-		this.init(element, maze, { cellSize, delay });
+		this.audio = new GameAudio();
+		this.element = element;
+
+		this.init(maze, { cellSize, delay });
 	}
 
-	init(element, maze = new Maze(), { cellSize = 50, delay = 500 } = {}) {
+	init(maze = new Maze(), { cellSize = 50, delay = 500 } = {}) {
+		try {
+			this.audio.theme.play();
+		} catch (error) {}
 		clearInterval(this.interval);
 		// Init values
-		this.element = element;
 		this.cellSize = cellSize;
 		this.maze = maze;
 		this.current = maze.start;
@@ -69,6 +75,7 @@ class GameGui {
 	}
 
 	play() {
+		this.audio.theme.pause();
 		clearInterval(this.interval);
 		this.drawRect(this.current);
 		this.maze.startDfs();
@@ -77,7 +84,13 @@ class GameGui {
 		this.interval = setInterval(() => {
 			const step = steps.shift();
 
-			if (!step) return clearInterval(this.interval);
+			if (!step) {
+				this.audio.win.play();
+				return clearInterval(this.interval);
+			}
+
+			if (!step.pops?.length) this.audio.swimming.play();
+			else this.audio.return.play();
 
 			this.goto(step.current);
 
@@ -88,4 +101,3 @@ class GameGui {
 }
 
 export default GameGui;
-

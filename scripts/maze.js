@@ -16,21 +16,14 @@ class Maze {
 		return state[0] === this.target[0] && state[1] === this.target[1];
 	}
 
+	distance(p1, p2) {
+		return Math.sqrt(
+			Math.pow(p1[0] - p2[0], 2) + Math.pow(p1[1] - p2[1], 2),
+		);
+	}
+
 	findNextStates(current) {
 		const result = [];
-
-		// To up
-		if (current[0] && !this.map[current[0] - 1][current[1]]) {
-			result.push([current[0] - 1, current[1]]);
-		}
-
-		// To down
-		if (
-			current[0] != this.map.length - 1 &&
-			!this.map[current[0] + 1][current[1]]
-		) {
-			result.push([current[0] + 1, current[1]]);
-		}
 
 		// To left
 		if (current[1] && !this.map[current[0]][current[1] - 1]) {
@@ -45,7 +38,24 @@ class Maze {
 			result.push([current[0], current[1] + 1]);
 		}
 
-		return result;
+		// To up
+		if (current[0] && !this.map[current[0] - 1][current[1]]) {
+			result.push([current[0] - 1, current[1]]);
+		}
+
+		// To down
+		if (
+			current[0] != this.map.length - 1 &&
+			!this.map[current[0] + 1][current[1]]
+		) {
+			result.push([current[0] + 1, current[1]]);
+		}
+
+		return result.sort((a, b) => {
+			return (
+				this.distance(a, this.target) - this.distance(b, this.target)
+			);
+		});
 	}
 
 	dfs(current = this.start) {
@@ -61,6 +71,8 @@ class Maze {
 		this.hashed[current[0]][current[1]] = true;
 
 		const nextStates = this.findNextStates(current);
+
+		console.log(nextStates.map((e) => this.distance(e, this.target)));
 
 		const currentStep = {
 			current,
@@ -94,4 +106,3 @@ class Maze {
 }
 
 export default Maze;
-
