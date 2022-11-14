@@ -73,15 +73,23 @@ class Maze {
       nextStates: [],
       pops: [],
     };
+
     this.steps.push(currentStep);
+
+    const next = [];
 
     for (const nextState of nextStates) {
       if (this.hashed[nextState[0]])
         if (this.hashed[nextState[0]][nextState[1]]) continue;
 
       currentStep.nextStates.push(nextState);
+      next.push(nextState);
+    }
 
+    for (const nextState of next) {
       if (this.dfs(nextState)) return true;
+
+      this.steps.push({ current, nextStates: [], pops: [] });
     }
 
     this.steps.push({ current, nextStates: [], pops: [current] });

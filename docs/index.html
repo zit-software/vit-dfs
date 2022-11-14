@@ -1,299 +1,777 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Vịt Đi Ép Ếch</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/><link rel="icon" href="Duck.png"><script defer="defer" src="runtime.cc586d0459b91359ab43.js"></script><script defer="defer" src="main.531ba66e9e149dcd9b40.js"></script><style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Vịt Đi Ép Ếch</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/><link rel="icon" href="Duck.png"><script defer="defer">/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "";
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			666: 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkvit_dfs"] = self["webpackChunkvit_dfs"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	
+/******/ })()
+;</script><script defer="defer">"use strict";
+(self["webpackChunkvit_dfs"] = self["webpackChunkvit_dfs"] || []).push([[179],{
 
-html {
-  font-family: "Kanit", sans-serif;
-}
+/***/ 88:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url(fcbbd3d5443b427e26e6.png) repeat;
-  background-size: 50px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
 
-.maze-game {
-  position: relative;
-  background: url(aaaa933f662eb3e9cd58.png) repeat;
-  background-size: 150px;
-  animation: sprite_bg 5s linear infinite;
-  border-radius: 10px;
-}
-
-.maze-row {
-  display: flex;
-}
-
-.maze-cell {
-  transition: 0.4s ease;
-}
-
-.maze-cell.maze-grass {
-  background: url(74c9b8d0b85f75b482d5.png) no-repeat;
-  background-size: cover;
-  position: relative;
-  transition: 0.4s ease;
-}
-
-.maze-cell.maze-grass:hover {
-  transform: translateY(-1px);
-  cursor: pointer;
-  filter: brightness(0.9);
-}
-
-@keyframes sprite_bg {
-  from {
+;// CONCATENATED MODULE: ./src/js/maze.js
+class Maze {
+  constructor(
+    map = [[]],
+    start = [0, 0],
+    target = [map.length - 1, map[0].length - 1]
+  ) {
+    this.map = map;
+    this.start = start;
+    this.target = target;
+    this.hashed = {};
+    this.steps = [];
+    this.path = [];
   }
-  to {
-    background-position: 100px 0;
+
+  isGoal(state = []) {
+    return state[0] === this.target[0] && state[1] === this.target[1];
   }
-}
 
-.maze-character {
-  position: absolute;
-  background: url(b1aa7409325f71cb6304.png) no-repeat;
-  background-size: contain;
-  transition: 0.4s ease;
-  animation: sprite_character 1s infinite alternate;
-  filter: drop-shadow(0 2px 2px #00000050);
-}
-
-@keyframes sprite_character {
-  from {
+  distance(p1, p2) {
+    return Math.sqrt(Math.pow(p1[0] - p2[0], 2) + Math.pow(p1[1] - p2[1], 2));
   }
-  to {
-    transform: translateY(-5px);
+
+  findNextStates(current) {
+    const result = [];
+
+    // To left
+    if (current[1] && !this.map[current[0]][current[1] - 1]) {
+      result.push([current[0], current[1] - 1]);
+    }
+
+    // To right
+    if (
+      current[1] != this.map[0]?.length - 1 &&
+      !this.map[current[0]][current[1] + 1]
+    ) {
+      result.push([current[0], current[1] + 1]);
+    }
+
+    // To up
+    if (current[0] && !this.map[current[0] - 1][current[1]]) {
+      result.push([current[0] - 1, current[1]]);
+    }
+
+    // To down
+    if (
+      current[0] != this.map.length - 1 &&
+      !this.map[current[0] + 1][current[1]]
+    ) {
+      result.push([current[0] + 1, current[1]]);
+    }
+
+    return result.sort((a, b) => {
+      return this.distance(a, this.target) - this.distance(b, this.target);
+    });
   }
-}
 
-.maze-flag {
-  position: absolute;
-  background: url(df61fbb1c9e83d6096e9.png) no-repeat;
-  background-size: contain;
-  background-position: center;
-  opacity: 0.9;
-}
+  dfs(current = this.start) {
+    this.path.push(current);
 
-.maze-next {
-  background: #5010ff32;
-}
+    if (this.isGoal(current)) {
+      this.steps.push({ current, nextStates: [] });
+      return true;
+    }
 
-.maze-pop {
-  background: #ff00005d;
-}
+    if (!this.hashed[current[0]]) this.hashed[current[0]] = {};
 
-.maze-success {
-  background: #2288008f;
-}
+    this.hashed[current[0]][current[1]] = true;
 
-.game-menu {
-  margin: 20px;
-  height: 100%;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  min-width: 300px;
-  transition: 0.4s ease;
-  box-shadow: 0 0 40px #00000020;
-}
+    const nextStates = this.findNextStates(current);
 
-.game-menu-header {
-  padding: 10px 20px;
-  background: #00000005;
-  border-bottom: 1px solid #ddd;
-}
+    const currentStep = {
+      current,
+      nextStates: [],
+      pops: [],
+    };
 
-.game-menu-body {
-  padding: 10px 20px;
-}
+    this.steps.push(currentStep);
 
-.game-menu-row {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-}
+    const next = [];
 
-.game-menu span {
-  margin-left: 15px;
-}
+    for (const nextState of nextStates) {
+      if (this.hashed[nextState[0]])
+        if (this.hashed[nextState[0]][nextState[1]]) continue;
 
-.game-menu-row + .game-menu-row {
-  border-top: 1px solid #ddd;
-}
+      currentStep.nextStates.push(nextState);
+      next.push(nextState);
+    }
 
-.game-menu-row input {
-  flex: 1;
-  margin: 0 20px;
-}
+    for (const nextState of next) {
+      if (this.dfs(nextState)) return true;
 
-.game-box-info {
-  width: 40px;
-  height: 40px;
-  background: #2b6eff50;
-  border-radius: 2px;
-}
+      this.steps.push({ current, nextStates: [], pops: [] });
+    }
 
-.game-menu-footer {
-  padding: 10px 20px;
-  background: #00000005;
-  border-top: 1px solid #ddd;
-}
+    this.steps.push({ current, nextStates: [], pops: [current] });
 
-.game-menu-footer a {
-  color: #aaa;
-  text-align: center;
-  display: block;
-}
+    this.path.pop();
 
-.button {
-  padding: 10px 15px;
-  min-width: 150px;
-  color: #fff;
-  background: #5757ff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 900;
-  box-shadow: 0 5px 0 #000039;
-  transition: 0.4s ease;
-}
-
-.button + .button {
-  margin-left: 10px;
-}
-
-.button:hover {
-  opacity: 0.9;
-}
-
-.button:active {
-  box-shadow: 0 2px 0 #000039;
-  transform: translateY(3px);
-}
-
-.button-danger {
-  background: #ff1b6b;
-}
-
-.maze-login {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: 1s ease;
-  clip-path: circle(100%);
-}
-
-.maze-login.hide {
-  clip-path: circle(0% at top center);
-}
-
-.maze-login-vit {
-  width: 20%;
-  animation: dfs_animation 9.4s ease infinite alternate;
-}
-
-.maze-login-duck {
-  width: 10%;
-  animation: vit_animation 1s ease infinite alternate;
-}
-
-.maze-login-dfs {
-  width: 40%;
-  animation: dfs_animation 9.4s ease infinite alternate;
-}
-
-.maze-login-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.maze-login-play-btn {
-  min-width: 150px;
-  cursor: pointer;
-  transition: 0.4s ease;
-  margin-top: 20px;
-  padding: 12px;
-  font-weight: 900;
-  background: linear-gradient(#ceff1e, #2fd31a, #05a200);
-  color: #fff;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 10px 0px #024400;
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.maze-login-play-btn:active {
-  transform: translateY(8px);
-  box-shadow: 0 1px 0px #024400;
-}
-
-.maze-login-play-btn strong {
-  margin-right: 10px;
-}
-
-@keyframes vit_animation {
-  0%,
-  99% {
+    return false;
   }
-  100% {
-    transform: rotate(10deg);
+  startDfs() {
+    this.path = [];
+    this.steps = [];
+    this.hashed = {};
+
+    return this.dfs();
   }
 }
 
-@keyframes dfs_animation {
-  from {
+/* harmony default export */ const js_maze = (Maze);
+
+;// CONCATENATED MODULE: ./src/assets/audios/Swimming.mp3
+/* harmony default export */ const Swimming = (__webpack_require__.p + "dff4f75ea1b2918eb572b22e31776eee.mp3");
+;// CONCATENATED MODULE: ./src/assets/audios/Theme.mp3
+/* harmony default export */ const Theme = (__webpack_require__.p + "1410a48041d5794e34358a9696b4611c.mp3");
+;// CONCATENATED MODULE: ./src/assets/audios/Return.mp3
+/* harmony default export */ const Return = (__webpack_require__.p + "96d28abc64c4561be07df7da092789e5.mp3");
+;// CONCATENATED MODULE: ./src/assets/audios/Win.wav
+/* harmony default export */ const Win = (__webpack_require__.p + "9b5b1a6223e1057f889880c41f2a324e.wav");
+;// CONCATENATED MODULE: ./src/assets/audios/Click.wav
+/* harmony default export */ const Click = (__webpack_require__.p + "2604a56c761e9cbfc005832e0193974c.wav");
+;// CONCATENATED MODULE: ./src/js/game-audio.js
+
+
+
+
+
+
+class GameAudio {
+  constructor() {
+    this.swimming = new Audio(Swimming);
+    this.theme = new Audio(Theme);
+    this.return = new Audio(Return);
+    this.win = new Audio(Win);
+    this.click = new Audio(Click);
+
+    this.theme.loop = true;
   }
-  to {
-    transform: translateY(20px);
+}
+
+/* harmony default export */ const game_audio = (GameAudio);
+
+;// CONCATENATED MODULE: ./src/js/game-gui.js
+
+
+
+class GameGui {
+  constructor(element, maze = new js_maze(), { cellSize, delay } = {}) {
+    this.audio = new game_audio();
+    this.element = element;
+
+    this.init(maze, { cellSize, delay });
+  }
+
+  init(maze = new js_maze(), { cellSize = 50, delay = 500 } = {}) {
+    try {
+      this.audio.theme.play();
+    } catch (error) {}
+    clearInterval(this.interval);
+    // Init values
+    this.cellSize = cellSize;
+    this.maze = maze;
+    this.current = maze.start;
+    this.delay = delay;
+
+    // Render flag
+    this.element.innerHTML = "";
+    this.element.innerHTML += /*html*/ `<div class="maze-flag" style="width: ${
+      this.cellSize
+    }px; height: ${this.cellSize}px; top: ${
+      this.cellSize * this.maze.target[0]
+    }px; left: ${this.cellSize * this.maze.target[1]}px"></div>`;
+
+    // Render map
+    for (const row of this.maze.map) {
+      const rowEl = document.createElement("div");
+      rowEl.classList.add("maze-row");
+
+      for (const cell of row) {
+        rowEl.innerHTML += /*html*/ `<div class="maze-cell${
+          cell ? " maze-grass" : ""
+        }" style="width: ${this.cellSize}px; height: ${
+          this.cellSize
+        }px;"></div>`;
+      }
+
+      this.element.append(rowEl);
+    }
+
+    // Render character
+    this.character = document.createElement("div");
+    this.character.classList.add("maze-character");
+    this.character.style.width = this.cellSize + "px";
+    this.character.style.height = this.cellSize + "px";
+    this.element.append(this.character);
+    this.render();
+  }
+
+  render() {
+    this.character.style.top = this.cellSize * this.current[0] + "px";
+    this.character.style.left = this.cellSize * this.current[1] + "px";
+  }
+
+  goto(next) {
+    this.current = next;
+    this.render();
+  }
+
+  drawRect(rect = [], className = "maze-next") {
+    const row = this.element.querySelectorAll(".maze-row")[rect[0]];
+    const cell = row.querySelectorAll(".maze-cell")[rect[1]];
+
+    cell.classList.add(className);
+  }
+
+  drawRects(rects = [], className) {
+    rects.forEach((rect) => this.drawRect(rect, className));
+  }
+
+  play() {
+    this.init(this.maze, { cellSize: this.cellSize, delay: this.delay });
+    this.audio.theme.pause();
+    clearInterval(this.interval);
+    this.drawRect(this.current);
+    this.maze.startDfs();
+    const steps = this.maze.steps;
+    const path = this.maze.path;
+
+    this.interval = setInterval(() => {
+      const step = steps.shift();
+
+      if (!step) {
+        this.audio.win.play();
+        clearInterval(this.interval);
+
+        this.interval = setInterval(() => {
+          const p = path.pop();
+          if (!p) return clearInterval(this.interval);
+
+          this.drawRect(p, "maze-success");
+        }, this.delay / 10);
+
+        return;
+      }
+
+      if (!step.pops?.length) this.audio.swimming.play();
+      else this.audio.return.play();
+
+      this.goto(step.current);
+
+      this.drawRects(step.nextStates);
+      this.drawRects(step.pops, "maze-pop");
+    }, this.delay);
   }
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: #000000aa;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.4s ease;
+/* harmony default export */ const game_gui = (GameGui);
+
+;// CONCATENATED MODULE: ./src/js/maze-builder.js
+// Original JavaScript code by Chirp Internet: chirpinternet.eu
+// Please acknowledge use of this code by including this header.
+
+class MazeBuilder {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+
+    this.cols = 2 * this.width + 1;
+    this.rows = 2 * this.height + 1;
+
+    this.maze = this.initArray([]);
+
+    // place initial walls
+    this.maze.forEach((row, r) => {
+      row.forEach((cell, c) => {
+        switch (r) {
+          case 0:
+          case this.rows - 1:
+            this.maze[r][c] = ["wall"];
+            break;
+
+          default:
+            if (r % 2 == 1) {
+              if (c == 0 || c == this.cols - 1) {
+                this.maze[r][c] = ["wall"];
+              }
+            } else if (c % 2 == 0) {
+              this.maze[r][c] = ["wall"];
+            }
+        }
+      });
+
+      if (r == 0) {
+        // place exit in top row
+        let doorPos = this.posToSpace(this.rand(1, this.width));
+        this.maze[r][doorPos] = ["door", "exit"];
+      }
+
+      if (r == this.rows - 1) {
+        // place entrance in bottom row
+        let doorPos = this.posToSpace(this.rand(1, this.width));
+        this.maze[r][doorPos] = ["door", "entrance"];
+      }
+    });
+
+    // start partitioning
+    this.partition(1, this.height - 1, 1, this.width - 1);
+  }
+
+  initArray(value) {
+    return new Array(this.rows)
+      .fill()
+      .map(() => new Array(this.cols).fill(value));
+  }
+
+  rand(min, max) {
+    return min + Math.floor(Math.random() * (1 + max - min));
+  }
+
+  posToSpace(x) {
+    return 2 * (x - 1) + 1;
+  }
+
+  posToWall(x) {
+    return 2 * x;
+  }
+
+  inBounds(r, c) {
+    if (
+      typeof this.maze[r] == "undefined" ||
+      typeof this.maze[r][c] == "undefined"
+    ) {
+      return false; // out of bounds
+    }
+    return true;
+  }
+
+  shuffle(array) {
+    // sauce: https://stackoverflow.com/a/12646864
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  partition(r1, r2, c1, c2) {
+    // create partition walls
+    // ref: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_division_method
+
+    let horiz, vert, x, y, start, end;
+
+    if (r2 < r1 || c2 < c1) {
+      return false;
+    }
+
+    if (r1 == r2) {
+      horiz = r1;
+    } else {
+      x = r1 + 1;
+      y = r2 - 1;
+      start = Math.round(x + (y - x) / 4);
+      end = Math.round(x + (3 * (y - x)) / 4);
+      horiz = this.rand(start, end);
+    }
+
+    if (c1 == c2) {
+      vert = c1;
+    } else {
+      x = c1 + 1;
+      y = c2 - 1;
+      start = Math.round(x + (y - x) / 3);
+      end = Math.round(x + (2 * (y - x)) / 3);
+      vert = this.rand(start, end);
+    }
+
+    for (let i = this.posToWall(r1) - 1; i <= this.posToWall(r2) + 1; i++) {
+      for (let j = this.posToWall(c1) - 1; j <= this.posToWall(c2) + 1; j++) {
+        if (i == this.posToWall(horiz) || j == this.posToWall(vert)) {
+          this.maze[i][j] = ["wall"];
+        }
+      }
+    }
+
+    let gaps = this.shuffle([true, true, true, false]);
+
+    // create gaps in partition walls
+
+    if (gaps[0]) {
+      let gapPosition = this.rand(c1, vert);
+      this.maze[this.posToWall(horiz)][this.posToSpace(gapPosition)] = [];
+    }
+
+    if (gaps[1]) {
+      let gapPosition = this.rand(vert + 1, c2 + 1);
+      this.maze[this.posToWall(horiz)][this.posToSpace(gapPosition)] = [];
+    }
+
+    if (gaps[2]) {
+      let gapPosition = this.rand(r1, horiz);
+      this.maze[this.posToSpace(gapPosition)][this.posToWall(vert)] = [];
+    }
+
+    if (gaps[3]) {
+      let gapPosition = this.rand(horiz + 1, r2 + 1);
+      this.maze[this.posToSpace(gapPosition)][this.posToWall(vert)] = [];
+    }
+
+    // recursively partition newly created chambers
+
+    this.partition(r1, horiz - 1, c1, vert - 1);
+    this.partition(horiz + 1, r2, c1, vert - 1);
+    this.partition(r1, horiz - 1, vert + 1, c2);
+    this.partition(horiz + 1, r2, vert + 1, c2);
+  }
+
+  isGap(...cells) {
+    return cells.every((array) => {
+      let row, col;
+      [row, col] = array;
+      if (this.maze[row][col].length > 0) {
+        if (!this.maze[row][col].includes("door")) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  countSteps(array, r, c, val, stop) {
+    if (!this.inBounds(r, c)) {
+      return false; // out of bounds
+    }
+
+    if (array[r][c] <= val) {
+      return false; // shorter route already mapped
+    }
+
+    if (!this.isGap([r, c])) {
+      return false; // not traversable
+    }
+
+    array[r][c] = val;
+
+    if (this.maze[r][c].includes(stop)) {
+      return true; // reached destination
+    }
+
+    this.countSteps(array, r - 1, c, val + 1, stop);
+    this.countSteps(array, r, c + 1, val + 1, stop);
+    this.countSteps(array, r + 1, c, val + 1, stop);
+    this.countSteps(array, r, c - 1, val + 1, stop);
+  }
+
+  getKeyLocation() {
+    let fromEntrance = this.initArray();
+    let fromExit = this.initArray();
+
+    this.totalSteps = -1;
+
+    for (let j = 1; j < this.cols - 1; j++) {
+      if (this.maze[this.rows - 1][j].includes("entrance")) {
+        this.countSteps(fromEntrance, this.rows - 1, j, 0, "exit");
+      }
+      if (this.maze[0][j].includes("exit")) {
+        this.countSteps(fromExit, 0, j, 0, "entrance");
+      }
+    }
+
+    let fc = -1,
+      fr = -1;
+
+    this.maze.forEach((row, r) => {
+      row.forEach((cell, c) => {
+        if (typeof fromEntrance[r][c] == "undefined") {
+          return;
+        }
+        let stepCount = fromEntrance[r][c] + fromExit[r][c];
+        if (stepCount > this.totalSteps) {
+          fr = r;
+          fc = c;
+          this.totalSteps = stepCount;
+        }
+      });
+    });
+
+    return [fr, fc];
+  }
+
+  placeKey() {
+    let fr, fc;
+    [fr, fc] = this.getKeyLocation();
+
+    this.maze[fr][fc] = ["key"];
+  }
+
+  display(id) {
+    this.parentDiv = document.getElementById(id);
+
+    if (!this.parentDiv) {
+      alert('Cannot initialise maze - no element found with id "' + id + '"');
+      return false;
+    }
+
+    while (this.parentDiv.firstChild) {
+      this.parentDiv.removeChild(this.parentDiv.firstChild);
+    }
+
+    const container = document.createElement("div");
+    container.id = "maze";
+    container.dataset.steps = this.totalSteps;
+
+    this.maze.forEach((row) => {
+      let rowDiv = document.createElement("div");
+      row.forEach((cell) => {
+        let cellDiv = document.createElement("div");
+        if (cell) {
+          cellDiv.className = cell.join(" ");
+        }
+        rowDiv.appendChild(cellDiv);
+      });
+      container.appendChild(rowDiv);
+    });
+
+    this.parentDiv.appendChild(container);
+
+    return true;
+  }
 }
 
-.modal.show {
-  visibility: visible;
-  opacity: 1;
+/* harmony default export */ const maze_builder = (MazeBuilder);
+
+;// CONCATENATED MODULE: ./src/js/maze-generator.js
+
+
+function mazeGenerator(width = 10, height = 10) {
+  const mazeBuilder = new maze_builder(height, width);
+
+  let start = null;
+  let target = null;
+
+  const map = [];
+
+  for (let i = 0; i < mazeBuilder.maze[0].length; i++) {
+    map.push([]);
+
+    for (let j = 0; j < mazeBuilder.maze.length; j++) {
+      const len = mazeBuilder.maze[j][i].length;
+
+      if (len === 2) {
+        map[i].push(0);
+
+        if (j) target = [i, j];
+        else start = [i, j];
+
+        continue;
+      }
+
+      map[i].push(len);
+    }
+  }
+
+  return {
+    map,
+    start,
+    target,
+    rows: mazeBuilder.rows,
+    cols: mazeBuilder.cols,
+  };
 }
 
-.modal .game-menu {
-  height: auto;
-}
+;// CONCATENATED MODULE: ./src/index.js
 
-.modal img {
-  border-radius: 100px;
-  margin-right: 10px;
-}
 
-</style></head><body><section class="game-container"><div class="maze-game" id="maze-game"></div></section><section><div class="game-menu"><div class="game-menu-header"><h3>Chú thích</h3></div><div class="game-menu-body"><div class="game-menu-row"><img src="./assets/images/Duck.png" width="40" alt=""/> <span>Người chơi</span></div><div class="game-menu-row"><img src="./assets/images/FinishLine.png" height="40" style="margin: 0 15px" alt=""/> <span>GOAL</span></div><div class="game-menu-row"><img src="./assets/images/Grass.png" width="40" alt=""/> <span>Vật cản</span></div><div class="game-menu-row"><img src="./assets/images/Water.png" width="40" alt=""/> <span>Đường nước</span></div><div class="game-menu-row"><div class="game-box-info"></div><span>Đã đi qua</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #ff000050"></div><span>Đường cụt</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #00800050"></div><span>Kết quả</span></div></div></div><div class="game-menu"><div class="game-menu-header"><h3>Cài đặt</h3></div><div class="game-menu-body"><div class="game-menu-row"><label for="maze-width">Chiều rộng</label> <input type="range" name="maze-width" min="5" max="50" id="maze-width" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-height">Chiều cao</label> <input type="range" name="maze-height" min="5" max="50" id="maze-height" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-delay">Độ trễ</label> <input type="range" name="maze-delay" min="100" max="10000" id="maze-delay" oninput="this.nextElementSibling.value = this.value" value="500"/><output>500</output></div><div class="game-menu-row"><button class="button" id="maze-accept">Áp dụng</button> <button class="button button-danger" id="maze-play">Gét gô!!!!</button></div></div><div class="game-menu-footer"><a href="#" onclick="toggleModal()">Chi tiết dự án</a></div></div></section><div class="maze-login" id="maze-login"><div class="maze-login-row"><img src="./assets/images/Vit.png" alt="" class="maze-login-vit"/> <img src="./assets/images/Duck.png" alt="" class="maze-login-duck"/></div><img src="./assets/images/DFS.png" alt="" class="maze-login-dfs"/> <button class="maze-login-play-btn" id="maze-login-play-btn"><strong>Play</strong> <i class="fa-solid fa-play"></i></button></div><div class="modal" onclick="toggleModal()"><div class="game-menu" onclick="event.stopPropagation()"><div class="game-menu-header"><h3>Những người thực hiện</h3></div><div class="game-menu-body"><div class="game-menu-row"><a href="https://github.com/thangved" target="_blank"><img src="https://github.com/thangved.png" width="50" alt=""/> </a><span>Kim Minh Thắng</span></div><div class="game-menu-row"><a href="https://github.com/huyluongme" target="_blank"><img src="https://github.com/huyluongme.png" width="50" alt=""/> </a><span>Lương Đức Huy</span></div><div class="game-menu-row"><a href="#"><img src="http://www.gravatar.com/avatar/?d=identicon" width="50" alt=""/> </a><span>Nguyễn Huy Cường</span></div></div></div></div></body></html>
+
+
+
+window.addEventListener("load", () => {
+  const gameGui = new game_gui(document.getElementById("maze-game"));
+
+  function gameGenerate(width, height, delay) {
+    const { map, start, target, rows, cols } = mazeGenerator(width, height);
+    const maze = new js_maze(map, start, target);
+
+    gameGui.init(maze, {
+      cellSize: Math.min(
+        (document.body.offsetHeight - 80) / cols,
+        (document.body.offsetWidth - 80) / rows
+      ),
+      delay,
+    });
+  }
+
+  gameGenerate();
+
+  const acceptButton = document.getElementById("maze-accept");
+
+  function handleAccept() {
+    const width = Number(document.getElementById("maze-width").value);
+    const height = Number(document.getElementById("maze-height").value);
+
+    const delay = Number(document.getElementById("maze-delay").value);
+
+    gameGenerate(width, height, delay);
+  }
+
+  acceptButton.addEventListener("click", handleAccept);
+
+  document
+    .getElementById("maze-play")
+    .addEventListener("click", gameGui.play.bind(gameGui));
+
+  document
+    .getElementById("maze-login-play-btn")
+    .addEventListener("click", () => {
+      gameGui.audio.click.play();
+      setTimeout(() => {
+        document.getElementById("maze-login").classList.add("hide");
+        handleAccept();
+      }, 200);
+    });
+
+  function toggleModal() {
+    document.querySelector(".modal").classList.toggle("show");
+  }
+
+  window.toggleModal = toggleModal;
+});
+
+
+/***/ })
+
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__(88));
+/******/ }
+]);</script><style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);*{box-sizing:border-box;margin:0;padding:0}html{font-family:Kanit,sans-serif}body{align-items:center;background:url(fcbbd3d5443b427e26e6.png) repeat;background-size:50px;display:flex;flex-wrap:wrap;justify-content:center;min-height:100vh;padding:40px;width:100%}.maze-game{animation:sprite_bg 5s linear infinite;background:url(aaaa933f662eb3e9cd58.png) repeat;background-size:150px;border-radius:10px;position:relative}.maze-row{display:flex}.maze-cell{transition:.4s ease}.maze-cell.maze-grass{background:url(74c9b8d0b85f75b482d5.png) no-repeat;background-size:cover;position:relative;transition:.4s ease}.maze-cell.maze-grass:hover{cursor:pointer;filter:brightness(.9);transform:translateY(-1px)}@keyframes sprite_bg{to{background-position:100px 0}}.maze-character{animation:sprite_character 1s infinite alternate;background:url(b1aa7409325f71cb6304.png) no-repeat;background-size:contain;filter:drop-shadow(0 2px 2px #00000050);position:absolute;transition:.4s ease}@keyframes sprite_character{to{transform:translateY(-5px)}}.maze-flag{background:url(df61fbb1c9e83d6096e9.png) no-repeat;background-position:50%;background-size:contain;opacity:.9;position:absolute}.maze-next{background:#5010ff32}.maze-pop{animation:maze_pop_animation .4s ease;background:#ff00005d}@keyframes maze_pop_animation{to{transform:scale(1.2)}}.maze-success{background:#2288008f}.game-menu{background:#fff;border-radius:10px;box-shadow:0 0 40px #00000020;height:100%;margin:20px;min-width:300px;overflow:hidden;transition:.4s ease}.game-menu-header{background:#00000005;border-bottom:1px solid #ddd;padding:10px 20px}.game-menu-body{padding:10px 20px}.game-menu-row{align-items:center;display:flex;padding:10px 0}.game-menu span{margin-left:15px}.game-menu-row+.game-menu-row{border-top:1px solid #ddd}.game-menu-row input{flex:1;margin:0 20px}.game-box-info{background:#2b6eff50;border-radius:2px;height:40px;width:40px}.game-menu-footer{background:#00000005;border-top:1px solid #ddd;padding:10px 20px}.game-menu-footer a{color:#aaa;display:block;text-align:center}.button{background:#5757ff;border:none;border-radius:5px;box-shadow:0 5px 0 #000039;color:#fff;cursor:pointer;font-weight:900;min-width:150px;padding:10px 15px;transition:.4s ease}.button+.button{margin-left:10px}.button:hover{opacity:.9}.button:active{box-shadow:0 2px 0 #000039;transform:translateY(3px)}.button-danger{background:#ff1b6b}.maze-login{align-items:center;background:#fff;bottom:0;clip-path:circle(100%);display:flex;flex-direction:column;justify-content:center;left:0;position:fixed;right:0;top:0;transition:1s ease}.maze-login.hide{clip-path:circle(0 at top)}.maze-login-vit{animation:dfs_animation 9.4s ease infinite alternate;min-width:200px;width:20%}.maze-login-duck{animation:vit_animation 1s ease infinite alternate;min-width:100px;width:10%}.maze-login-dfs{animation:dfs_animation 9.4s ease infinite alternate;min-width:400px;width:40%}.maze-login-row{align-items:center;display:flex;justify-content:center}.maze-login-play-btn{background:linear-gradient(#ceff1e,#2fd31a,#05a200);border:none;border-radius:5px;box-shadow:0 10px 0 #024400;color:#fff;cursor:pointer;font-size:20px;font-weight:900;margin-top:50px;min-width:150px;padding:12px;text-transform:uppercase;transition:.4s ease}.maze-login-play-btn:active{box-shadow:0 1px 0 #024400;transform:translateY(8px)}.maze-login-play-btn strong{margin-right:10px}@keyframes vit_animation{to{transform:rotate(10deg)}}@keyframes dfs_animation{to{transform:translateY(20px)}}.modal{align-items:center;background:#000000aa;bottom:0;display:flex;flex-direction:column;justify-content:center;left:0;opacity:0;position:fixed;right:0;top:0;transition:.4s ease;visibility:hidden}.modal.show{opacity:1;visibility:visible}.modal .game-menu{height:auto}.modal img{border-radius:100px;margin-right:10px}</style></head><body><section class="game-container"><div class="maze-game" id="maze-game"></div></section><section><div class="game-menu"><div class="game-menu-header"><h3>Chú thích</h3></div><div class="game-menu-body"><div class="game-menu-row"><img src="./assets/images/Duck.png" width="40" alt=""/> <span>Người chơi</span></div><div class="game-menu-row"><img src="./assets/images/FinishLine.png" height="40" style="margin: 0 15px" alt=""/> <span>GOAL</span></div><div class="game-menu-row"><img src="./assets/images/Grass.png" width="40" alt=""/> <span>Vật cản</span></div><div class="game-menu-row"><img src="./assets/images/Water.png" width="40" alt=""/> <span>Đường nước</span></div><div class="game-menu-row"><div class="game-box-info"></div><span>Đã đi qua</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #ff000050"></div><span>Đường cụt</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #00800050"></div><span>Kết quả</span></div></div></div><div class="game-menu"><div class="game-menu-header"><h3>Cài đặt</h3></div><div class="game-menu-body"><div class="game-menu-row"><label for="maze-width">Chiều rộng</label> <input type="range" name="maze-width" min="5" max="50" id="maze-width" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-height">Chiều cao</label> <input type="range" name="maze-height" min="5" max="50" id="maze-height" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-delay">Độ trễ</label> <input type="range" name="maze-delay" min="100" max="10000" id="maze-delay" oninput="this.nextElementSibling.value = this.value" value="500"/><output>500</output></div><div class="game-menu-row"><button class="button" id="maze-accept">Áp dụng</button> <button class="button button-danger" id="maze-play">Gét gô!</button></div></div><div class="game-menu-footer"><a href="#" onclick="toggleModal()">Chi tiết dự án</a></div></div></section><div class="maze-login" id="maze-login"><div class="maze-login-row"><img src="./assets/images/Vit.png" alt="" class="maze-login-vit"/> <img src="./assets/images/Duck.png" alt="" class="maze-login-duck"/></div><img src="./assets/images/DFS.png" alt="" class="maze-login-dfs"/> <button class="maze-login-play-btn" id="maze-login-play-btn"><strong>Play</strong> <i class="fa-solid fa-play"></i></button></div><div class="modal" onclick="toggleModal()"><div class="game-menu" onclick="event.stopPropagation()"><div class="game-menu-header"><h3>Những người thực hiện</h3></div><div class="game-menu-body"><div class="game-menu-row"><a href="https://github.com/thangved" target="_blank"><img src="https://github.com/thangved.png" width="50" alt=""/> </a><span>Kim Minh Thắng</span></div><div class="game-menu-row"><a href="https://github.com/huyluongme" target="_blank"><img src="https://github.com/huyluongme.png" width="50" alt=""/> </a><span>Lương Đức Huy</span></div><div class="game-menu-row"><a href="#"><img src="http://www.gravatar.com/avatar/?d=identicon" width="50" alt=""/> </a><span>Nguyễn Huy Cường</span></div></div></div></div></body></html>

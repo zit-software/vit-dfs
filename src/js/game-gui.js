@@ -75,6 +75,7 @@ class GameGui {
   }
 
   play() {
+    this.init(this.maze, { cellSize: this.cellSize, delay: this.delay });
     this.audio.theme.pause();
     clearInterval(this.interval);
     this.drawRect(this.current);
@@ -104,7 +105,7 @@ class GameGui {
 
       this.goto(step.current);
 
-      this.drawRects(step.nextStates, "maze-next");
+      this.drawRects(step.nextStates);
       this.drawRects(step.pops, "maze-pop");
     }, this.delay);
   }

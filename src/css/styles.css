@@ -90,8 +90,16 @@ body {
 
 .maze-pop {
   background: #ff00005d;
+  animation: maze_pop_animation 0.4s ease;
 }
 
+@keyframes maze_pop_animation {
+  from {
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
 .maze-success {
   background: #2288008f;
 }
@@ -201,21 +209,24 @@ body {
 }
 
 .maze-login.hide {
-  clip-path: circle(0% at top center);
+  clip-path: circle(0% at top);
 }
 
 .maze-login-vit {
   width: 20%;
   animation: dfs_animation 9.4s ease infinite alternate;
+  min-width: 200px;
 }
 
 .maze-login-duck {
   width: 10%;
+  min-width: 100px;
   animation: vit_animation 1s ease infinite alternate;
 }
 
 .maze-login-dfs {
   width: 40%;
+  min-width: 400px;
   animation: dfs_animation 9.4s ease infinite alternate;
 }
 
@@ -229,7 +240,7 @@ body {
   min-width: 150px;
   cursor: pointer;
   transition: 0.4s ease;
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 12px;
   font-weight: 900;
   background: linear-gradient(#ceff1e, #2fd31a, #05a200);

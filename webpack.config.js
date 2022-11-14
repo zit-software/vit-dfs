@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLInlineCSSWebpackPlugin =
   require("html-inline-css-webpack-plugin").default;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
 
 const path = require("path");
 
@@ -12,6 +14,7 @@ module.exports = {
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "./docs"),
+    publicPath: "",
   },
 
   devServer: {
@@ -40,6 +43,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: "single",
+    minimizer: [new CssMinimizerPlugin()],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -61,5 +65,6 @@ module.exports = {
       chunkFilename: "[id].[contenthash].css",
     }),
     new HTMLInlineCSSWebpackPlugin(),
+    new HtmlInlineScriptPlugin(),
   ],
 };
