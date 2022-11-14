@@ -63,7 +63,7 @@ class GameGui {
     this.render();
   }
 
-  drawRect(rect = [], className = "maze-next") {
+  drawRect(rect = [], className = "maze-current") {
     const row = this.element.querySelectorAll(".maze-row")[rect[0]];
     const cell = row.querySelectorAll(".maze-cell")[rect[1]];
 
@@ -105,7 +105,10 @@ class GameGui {
 
       this.goto(step.current);
 
-      this.drawRects(step.nextStates);
+      this.drawRect(step.current);
+
+      this.drawRects(step.nextStates, "maze-next");
+
       this.drawRects(step.pops, "maze-pop");
     }, this.delay);
   }

@@ -85,21 +85,38 @@ body {
 }
 
 .maze-next {
+  background: url(../assets/images/Flag.png) no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: 8px;
+  transform-origin: bottom center;
+  animation: maze_next_animation 4s ease alternate infinite;
+  transition: none;
+  z-index: 10;
+}
+
+@keyframes maze_next_animation {
+  from {
+    transform: translate(50%, -40%) rotate(-30deg);
+  }
+  to {
+    background-position-y: 2px;
+    transform: translate(50%, -40%) rotate(-10deg);
+  }
+}
+
+.maze-current {
   background: #5010ff32;
+  animation: none;
+  z-index: unset;
 }
 
 .maze-pop {
-  background: #ff00005d;
-  animation: maze_pop_animation 0.4s ease alternate;
+  background: url(../assets/images/Stop.png) no-repeat;
+  background-size: 50%;
+  background-position: center;
 }
 
-@keyframes maze_pop_animation {
-  from {
-  }
-  to {
-    transform: scale(0.8);
-  }
-}
 .maze-success {
   background: #2288008f;
 }
@@ -206,6 +223,7 @@ body {
   flex-direction: column;
   transition: 1s ease;
   clip-path: circle(100%);
+  z-index: 100;
 }
 
 .maze-login.hide {
