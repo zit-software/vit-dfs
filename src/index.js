@@ -48,7 +48,7 @@ document.getElementById("maze-login-play-btn").addEventListener("click", () => {
   setTimeout(() => {
     document.getElementById("maze-login").classList.add("hide");
     handleAccept();
-  }, 500);
+  }, 200);
 });
 
 function toggleModal() {

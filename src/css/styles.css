@@ -45,6 +45,12 @@ body {
   transition: 0.4s ease;
 }
 
+.maze-cell.maze-grass:hover {
+  transform: translateY(-1px);
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
 @keyframes sprite_bg {
   from {
   }
@@ -128,6 +134,13 @@ body {
 .game-menu-row input {
   flex: 1;
   margin: 0 20px;
+}
+
+.game-box-info {
+  width: 40px;
+  height: 40px;
+  background: #2b6eff50;
+  border-radius: 2px;
 }
 
 .game-menu-footer {
