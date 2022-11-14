@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
 const InlineChunkHtmlPlugin = require("inline-chunk-html-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const path = require("path");
 
@@ -45,7 +45,11 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: "single",
-    minimizer: [new CssMinimizerPlugin(), new UglifyJsPlugin()],
+    minimizer: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    splitChunks: {
+      chunks: "all",
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -65,6 +69,6 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HTMLInlineCSSWebpackPlugin(),
     new HtmlInlineScriptPlugin(),
-    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime/]),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.+/]),
   ],
 };

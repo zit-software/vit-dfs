@@ -90,14 +90,14 @@ body {
 
 .maze-pop {
   background: #ff00005d;
-  animation: maze_pop_animation 0.4s ease;
+  animation: maze_pop_animation 0.4s ease alternate;
 }
 
 @keyframes maze_pop_animation {
   from {
   }
   to {
-    transform: scale(1.2);
+    transform: scale(0.8);
   }
 }
 .maze-success {
@@ -132,7 +132,7 @@ body {
 }
 
 .game-menu span {
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .game-menu-row + .game-menu-row {

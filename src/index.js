@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
       setTimeout(() => {
         document.getElementById("maze-login").classList.add("hide");
         handleAccept();
-      }, 1000);
+      }, 500);
     });
 
   function toggleModal() {
