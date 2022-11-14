@@ -34,12 +34,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.mp3$/,
+        test: /\.(mp3|wav)$/i,
         loader: "file-loader",
-      },
-      {
-        test: /\.wav$/,
-        loader: "file-loader",
+        options: {
+          name: "[name].[contenthash].[ext]",
+        },
       },
     ],
   },
