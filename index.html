@@ -1,101 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vịt Đi Ép Ếch</title>
-		<link rel="stylesheet" href="./styles/app.css" />
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vịt Đi Ép Ếch</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+  </head>
 
-	<body>
-		<section class="game-container">
-			<div class="maze-game" id="maze-game"></div>
-		</section>
-		<section class="game-menu">
-			<div class="game-menu-header">
-				<h2>Cài đặt</h2>
-			</div>
-			<div class="game-menu-body">
-				<div class="game-menu-row">
-					<label for="maze-width">Chiều rộng</label>
+  <body>
+    <section class="game-container">
+      <div class="maze-game" id="maze-game"></div>
+    </section>
+    <section class="game-menu">
+      <div class="game-menu-header">
+        <h2>Cài đặt</h2>
+      </div>
+      <div class="game-menu-body">
+        <div class="game-menu-row">
+          <label for="maze-width">Chiều rộng</label>
 
-					<input
-						type="range"
-						name="maze-width"
-						min="5"
-						max="50"
-						id="maze-width"
-						oninput="this.nextElementSibling.value = this.value"
-						value="10"
-					/>
+          <input
+            type="range"
+            name="maze-width"
+            min="5"
+            max="50"
+            id="maze-width"
+            oninput="this.nextElementSibling.value = this.value"
+            value="10"
+          />
 
-					<output>10</output>
-				</div>
+          <output>10</output>
+        </div>
 
-				<div class="game-menu-row">
-					<label for="maze-height">Chiều cao</label>
+        <div class="game-menu-row">
+          <label for="maze-height">Chiều cao</label>
 
-					<input
-						type="range"
-						name="maze-height"
-						min="5"
-						max="50"
-						id="maze-height"
-						oninput="this.nextElementSibling.value = this.value"
-						value="10"
-					/>
+          <input
+            type="range"
+            name="maze-height"
+            min="5"
+            max="50"
+            id="maze-height"
+            oninput="this.nextElementSibling.value = this.value"
+            value="10"
+          />
 
-					<output>10</output>
-				</div>
+          <output>10</output>
+        </div>
 
-				<div class="game-menu-row">
-					<label for="maze-delay">Độ trễ</label>
+        <div class="game-menu-row">
+          <label for="maze-delay">Độ trễ</label>
 
-					<input
-						type="range"
-						name="maze-delay"
-						min="100"
-						max="10000"
-						id="maze-delay"
-						oninput="this.nextElementSibling.value = this.value"
-						value="500"
-					/>
+          <input
+            type="range"
+            name="maze-delay"
+            min="100"
+            max="10000"
+            id="maze-delay"
+            oninput="this.nextElementSibling.value = this.value"
+            value="500"
+          />
 
-					<output>500</output>
-				</div>
+          <output>500</output>
+        </div>
 
-				<div class="game-menu-row">
-					<button class="button" id="maze-accept">Áp dụng</button>
-					<button class="button button-danger" id="maze-play">
-						Đi!!!
-					</button>
-				</div>
-			</div>
-		</section>
+        <div class="game-menu-row">
+          <button class="button" id="maze-accept">Áp dụng</button>
+          <button class="button button-danger" id="maze-play">Đi!!!</button>
+        </div>
+      </div>
+    </section>
 
-		<div class="maze-login" id="maze-login">
-			<div class="maze-login-row">
-				<img
-					src="./assets/images/Vit.png"
-					alt=""
-					class="maze-login-vit"
-				/>
-				<img
-					src="./assets/images/Duck.png"
-					alt=""
-					class="maze-login-duck"
-				/>
-			</div>
+    <div class="maze-login" id="maze-login">
+      <div class="maze-login-row">
+        <img src="./assets/images/Vit.png" alt="" class="maze-login-vit" />
+        <img src="./assets/images/Duck.png" alt="" class="maze-login-duck" />
+      </div>
 
-			<img src="./assets/images/DFS.png" alt="" class="maze-login-dfs" />
-			<img
-				src="./assets/images/PlayButton.png"
-				alt=""
-				class="maze-login-play-btn"
-				id="maze-login-play-btn"
-			/>
-		</div>
-		<script type="module" src="./scripts/main.js"></script>
-	</body>
+      <img src="./assets/images/DFS.png" alt="" class="maze-login-dfs" />
+      <img
+        src="./assets/images/PlayButton.png"
+        alt=""
+        class="maze-login-play-btn"
+        id="maze-login-play-btn"
+      />
+    </div>
+    <script type="module" src="./scripts/main.js"></script>
+  </body>
 </html>

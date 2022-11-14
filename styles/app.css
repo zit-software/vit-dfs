@@ -1,220 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-	font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 body {
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: url(../assets/images/Land.png) repeat;
-	background-size: 150px;
-	padding: 40px;
-	flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../assets/images/Land.png) repeat;
+  background-size: 150px;
+  padding: 40px;
+  flex-wrap: wrap;
 }
 
 .maze-game {
-	position: relative;
-	background: url(../assets/images/Water.png) repeat;
-	background-size: 150px;
-	animation: sprite_bg 5s linear infinite;
-	border-radius: 10px;
+  position: relative;
+  background: url(../assets/images/Water.png) repeat;
+  background-size: 150px;
+  animation: sprite_bg 5s linear infinite;
+  border-radius: 10px;
 }
 
 .maze-row {
-	display: flex;
+  display: flex;
 }
 
 .maze-cell {
-	transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
 .maze-cell.maze-grass {
-	background: url(../assets/images/Grass.png) no-repeat;
-	background-size: cover;
-	position: relative;
-	transition: 0.4s ease;
+  background: url(../assets/images/Grass.png) no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: 0.4s ease;
 }
 
 @keyframes sprite_bg {
-	from {
-	}
-	to {
-		background-position: 100px 0;
-	}
+  from {
+  }
+  to {
+    background-position: 100px 0;
+  }
 }
 
 .maze-character {
-	position: absolute;
-	background: url(../assets/images/Duck.png) no-repeat;
-	background-size: contain;
-	transition: 0.4s ease;
-	animation: sprite_character 1s infinite alternate;
-	filter: drop-shadow(0 2px 2px #00000050);
+  position: absolute;
+  background: url(../assets/images/Duck.png) no-repeat;
+  background-size: contain;
+  transition: 0.4s ease;
+  animation: sprite_character 1s infinite alternate;
+  filter: drop-shadow(0 2px 2px #00000050);
 }
 
 @keyframes sprite_character {
-	from {
-	}
-	to {
-		transform: translateY(-5px);
-	}
+  from {
+  }
+  to {
+    transform: translateY(-5px);
+  }
 }
 
 .maze-flag {
-	position: absolute;
-	background: url(../assets/images/FinishLine.png) no-repeat;
-	background-size: contain;
-	background-position: center;
-	opacity: 0.9;
+  position: absolute;
+  background: url(../assets/images/FinishLine.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.9;
 }
 
 .maze-next {
-	background: #5010ff32;
+  background: #5010ff32;
 }
 
 .maze-pop {
-	background: #ff00005d;
+  background: #ff00005d;
 }
 
 .game-menu {
-	margin: 20px;
-	height: 100%;
-	background: #ffffff;
-	height: 100%;
-	border-radius: 10px;
-	overflow: hidden;
-	min-width: 300px;
-	transition: 0.4s ease;
+  margin: 20px;
+  height: 100%;
+  background: #ffffff;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 300px;
+  transition: 0.4s ease;
 }
 
 .game-menu-header {
-	padding: 20px;
-	background: #00000005;
-	border-bottom: 1px solid #ddd;
+  padding: 20px;
+  background: #00000005;
+  border-bottom: 1px solid #ddd;
 }
 
 .game-menu-body {
-	padding: 20px;
+  padding: 20px;
 }
 
 .game-menu-row {
-	display: flex;
-	align-items: center;
-	padding: 20px 0;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
 }
 
 .game-menu-row + .game-menu-row {
-	border-top: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 .game-menu-row input {
-	flex: 1;
-	margin: 0 20px;
+  flex: 1;
+  margin: 0 20px;
 }
 
 .button {
-	padding: 10px 15px;
-	min-width: 150px;
-	color: #fff;
-	background: #5757ff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-weight: 900;
+  padding: 10px 15px;
+  min-width: 150px;
+  color: #fff;
+  background: #5757ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 900;
 }
 
 .button + .button {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 .button:hover {
-	opacity: 0.9;
+  opacity: 0.9;
 }
 
 .button:active {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 .button-danger {
-	background: #ff1b6b;
+  background: #ff1b6b;
 }
 
 .maze-login {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	transition: 0.6s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 0.6s ease;
 }
 
 .maze-login.hide {
-	transform: translateY(-100%);
-	opacity: 0;
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 .maze-login-vit {
-	width: 20%;
-	animation: dfs_animation 9.4s ease infinite alternate;
+  width: 20%;
+  animation: dfs_animation 9.4s ease infinite alternate;
 }
 
 .maze-login-duck {
-	width: 10%;
-	animation: vit_animation 1s ease infinite alternate;
+  width: 10%;
+  animation: vit_animation 1s ease infinite alternate;
 }
 
 .maze-login-dfs {
-	width: 40%;
-	animation: dfs_animation 9.4s ease infinite alternate;
+  width: 40%;
+  animation: dfs_animation 9.4s ease infinite alternate;
 }
 
 .maze-login-row {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .maze-login-play-btn {
-	width: 200px;
-	cursor: pointer;
-	transition: 0.4s ease;
+  width: 200px;
+  cursor: pointer;
+  transition: 0.4s ease;
 }
 
 .maze-login-play-btn:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 .maze-login-play-btn:active {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @keyframes vit_animation {
-	0%,
-	99% {
-	}
-	100% {
-		transform: rotate(10deg);
-	}
+  0%,
+  99% {
+  }
+  100% {
+    transform: rotate(10deg);
+  }
 }
 
 @keyframes dfs_animation {
-	from {
-	}
-	to {
-		transform: translateY(20px);
-	}
+  from {
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
