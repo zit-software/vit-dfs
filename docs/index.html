@@ -1,1 +1,299 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Vịt Đi Ép Ếch</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/><link rel="shortcut icon" href="./assets/images/Duck.png" type="image/x-icon"/><script defer="defer" src="runtime.d04be5c260ab78022d0e.js"></script><script defer="defer" src="main.17fe7817d0e1ba4b991b.js"></script></head><body><section class="game-container"><div class="maze-game" id="maze-game"></div></section><section><div class="game-menu"><div class="game-menu-header"><h3>Chú thích</h3></div><div class="game-menu-body"><div class="game-menu-row"><img src="./assets/images/Duck.png" width="40" alt=""/> <span>Người chơi</span></div><div class="game-menu-row"><img src="./assets/images/FinishLine.png" height="40" style="margin: 0 15px" alt=""/> <span>GOAL</span></div><div class="game-menu-row"><img src="./assets/images/Grass.png" width="40" alt=""/> <span>Vật cản</span></div><div class="game-menu-row"><img src="./assets/images/Water.png" width="40" alt=""/> <span>Đường nước</span></div><div class="game-menu-row"><div class="game-box-info"></div><span>Đã đi qua</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #ff000050"></div><span>Đường cụt</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #00800050"></div><span>Kết quả</span></div></div></div><div class="game-menu"><div class="game-menu-header"><h3>Cài đặt</h3></div><div class="game-menu-body"><div class="game-menu-row"><label for="maze-width">Chiều rộng</label> <input type="range" name="maze-width" min="5" max="50" id="maze-width" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-height">Chiều cao</label> <input type="range" name="maze-height" min="5" max="50" id="maze-height" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-delay">Độ trễ</label> <input type="range" name="maze-delay" min="100" max="10000" id="maze-delay" oninput="this.nextElementSibling.value = this.value" value="500"/><output>500</output></div><div class="game-menu-row"><button class="button" id="maze-accept">Áp dụng</button> <button class="button button-danger" id="maze-play">Gét gô!!!!</button></div></div><div class="game-menu-footer"><a href="#" onclick="toggleModal()">Chi tiết dự án</a></div></div></section><div class="maze-login" id="maze-login"><div class="maze-login-row"><img src="./assets/images/Vit.png" alt="" class="maze-login-vit"/> <img src="./assets/images/Duck.png" alt="" class="maze-login-duck"/></div><img src="./assets/images/DFS.png" alt="" class="maze-login-dfs"/> <button class="maze-login-play-btn" id="maze-login-play-btn"><strong>Play</strong> <i class="fa-solid fa-play"></i></button></div><div class="modal" onclick="toggleModal()"><div class="game-menu" onclick="event.stopPropagation()"><div class="game-menu-header"><h3>Những người thực hiện</h3></div><div class="game-menu-body"><div class="game-menu-row"><a href="https://github.com/thangved" target="_blank"><img src="https://github.com/thangved.png" width="50" alt=""/> </a><span>Kim Minh Thắng</span></div><div class="game-menu-row"><a href="https://github.com/huyluongme" target="_blank"><img src="https://github.com/huyluongme.png" width="50" alt=""/> </a><span>Lương Đức Huy</span></div><div class="game-menu-row"><a href="#"><img src="http://www.gravatar.com/avatar/?d=identicon" width="50" alt=""/> </a><span>Nguyễn Huy Cường</span></div></div></div></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Vịt Đi Ép Ếch</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/><link rel="icon" href="Duck.png"><script defer="defer" src="runtime.6fa0d574c6252c2dccac.js"></script><script defer="defer" src="main.556042132ee0fb4b281d.js"></script><style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Kanit", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(fcbbd3d5443b427e26e6.png) repeat;
+  background-size: 50px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.maze-game {
+  position: relative;
+  background: url(aaaa933f662eb3e9cd58.png) repeat;
+  background-size: 150px;
+  animation: sprite_bg 5s linear infinite;
+  border-radius: 10px;
+}
+
+.maze-row {
+  display: flex;
+}
+
+.maze-cell {
+  transition: 0.4s ease;
+}
+
+.maze-cell.maze-grass {
+  background: url(74c9b8d0b85f75b482d5.png) no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.maze-cell.maze-grass:hover {
+  transform: translateY(-1px);
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
+@keyframes sprite_bg {
+  from {
+  }
+  to {
+    background-position: 100px 0;
+  }
+}
+
+.maze-character {
+  position: absolute;
+  background: url(b1aa7409325f71cb6304.png) no-repeat;
+  background-size: contain;
+  transition: 0.4s ease;
+  animation: sprite_character 1s infinite alternate;
+  filter: drop-shadow(0 2px 2px #00000050);
+}
+
+@keyframes sprite_character {
+  from {
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.maze-flag {
+  position: absolute;
+  background: url(df61fbb1c9e83d6096e9.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.maze-next {
+  background: #5010ff32;
+}
+
+.maze-pop {
+  background: #ff00005d;
+}
+
+.maze-success {
+  background: #2288008f;
+}
+
+.game-menu {
+  margin: 20px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 300px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 40px #00000020;
+}
+
+.game-menu-header {
+  padding: 10px 20px;
+  background: #00000005;
+  border-bottom: 1px solid #ddd;
+}
+
+.game-menu-body {
+  padding: 10px 20px;
+}
+
+.game-menu-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.game-menu span {
+  margin-left: 15px;
+}
+
+.game-menu-row + .game-menu-row {
+  border-top: 1px solid #ddd;
+}
+
+.game-menu-row input {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.game-box-info {
+  width: 40px;
+  height: 40px;
+  background: #2b6eff50;
+  border-radius: 2px;
+}
+
+.game-menu-footer {
+  padding: 10px 20px;
+  background: #00000005;
+  border-top: 1px solid #ddd;
+}
+
+.game-menu-footer a {
+  color: #aaa;
+  text-align: center;
+  display: block;
+}
+
+.button {
+  padding: 10px 15px;
+  min-width: 150px;
+  color: #fff;
+  background: #5757ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 5px 0 #000039;
+  transition: 0.4s ease;
+}
+
+.button + .button {
+  margin-left: 10px;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  box-shadow: 0 2px 0 #000039;
+  transform: translateY(3px);
+}
+
+.button-danger {
+  background: #ff1b6b;
+}
+
+.maze-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 1s ease;
+  clip-path: circle(100%);
+}
+
+.maze-login.hide {
+  clip-path: circle(0% at top center);
+}
+
+.maze-login-vit {
+  width: 20%;
+  animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-duck {
+  width: 10%;
+  animation: vit_animation 1s ease infinite alternate;
+}
+
+.maze-login-dfs {
+  width: 40%;
+  animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maze-login-play-btn {
+  min-width: 150px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  margin-top: 20px;
+  padding: 12px;
+  font-weight: 900;
+  background: linear-gradient(#ceff1e, #2fd31a, #05a200);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 10px 0px #024400;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.maze-login-play-btn:active {
+  transform: translateY(8px);
+  box-shadow: 0 1px 0px #024400;
+}
+
+.maze-login-play-btn strong {
+  margin-right: 10px;
+}
+
+@keyframes vit_animation {
+  0%,
+  99% {
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes dfs_animation {
+  from {
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #000000aa;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal .game-menu {
+  height: auto;
+}
+
+.modal img {
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+</style></head><body><section class="game-container"><div class="maze-game" id="maze-game"></div></section><section><div class="game-menu"><div class="game-menu-header"><h3>Chú thích</h3></div><div class="game-menu-body"><div class="game-menu-row"><img src="./assets/images/Duck.png" width="40" alt=""/> <span>Người chơi</span></div><div class="game-menu-row"><img src="./assets/images/FinishLine.png" height="40" style="margin: 0 15px" alt=""/> <span>GOAL</span></div><div class="game-menu-row"><img src="./assets/images/Grass.png" width="40" alt=""/> <span>Vật cản</span></div><div class="game-menu-row"><img src="./assets/images/Water.png" width="40" alt=""/> <span>Đường nước</span></div><div class="game-menu-row"><div class="game-box-info"></div><span>Đã đi qua</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #ff000050"></div><span>Đường cụt</span></div><div class="game-menu-row"><div class="game-box-info" style="background: #00800050"></div><span>Kết quả</span></div></div></div><div class="game-menu"><div class="game-menu-header"><h3>Cài đặt</h3></div><div class="game-menu-body"><div class="game-menu-row"><label for="maze-width">Chiều rộng</label> <input type="range" name="maze-width" min="5" max="50" id="maze-width" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-height">Chiều cao</label> <input type="range" name="maze-height" min="5" max="50" id="maze-height" oninput="this.nextElementSibling.value = this.value" value="10"/><output>10</output></div><div class="game-menu-row"><label for="maze-delay">Độ trễ</label> <input type="range" name="maze-delay" min="100" max="10000" id="maze-delay" oninput="this.nextElementSibling.value = this.value" value="500"/><output>500</output></div><div class="game-menu-row"><button class="button" id="maze-accept">Áp dụng</button> <button class="button button-danger" id="maze-play">Gét gô!!!!</button></div></div><div class="game-menu-footer"><a href="#" onclick="toggleModal()">Chi tiết dự án</a></div></div></section><div class="maze-login" id="maze-login"><div class="maze-login-row"><img src="./assets/images/Vit.png" alt="" class="maze-login-vit"/> <img src="./assets/images/Duck.png" alt="" class="maze-login-duck"/></div><img src="./assets/images/DFS.png" alt="" class="maze-login-dfs"/> <button class="maze-login-play-btn" id="maze-login-play-btn"><strong>Play</strong> <i class="fa-solid fa-play"></i></button></div><div class="modal" onclick="toggleModal()"><div class="game-menu" onclick="event.stopPropagation()"><div class="game-menu-header"><h3>Những người thực hiện</h3></div><div class="game-menu-body"><div class="game-menu-row"><a href="https://github.com/thangved" target="_blank"><img src="https://github.com/thangved.png" width="50" alt=""/> </a><span>Kim Minh Thắng</span></div><div class="game-menu-row"><a href="https://github.com/huyluongme" target="_blank"><img src="https://github.com/huyluongme.png" width="50" alt=""/> </a><span>Lương Đức Huy</span></div><div class="game-menu-row"><a href="#"><img src="http://www.gravatar.com/avatar/?d=identicon" width="50" alt=""/> </a><span>Nguyễn Huy Cường</span></div></div></div></div></body></html>
