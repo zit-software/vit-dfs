@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vịt Đi Ép Ếch</title>
     <link rel="stylesheet" href="./styles/app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
   </head>
 
   <body>
     <section class="game-container">
       <div class="maze-game" id="maze-game"></div>
     </section>
+
     <section class="game-menu">
       <div class="game-menu-header">
-        <h2>Cài đặt</h2>
+        <h3>Cài đặt</h3>
       </div>
       <div class="game-menu-body">
         <div class="game-menu-row">
@@ -67,8 +72,14 @@
 
         <div class="game-menu-row">
           <button class="button" id="maze-accept">Áp dụng</button>
-          <button class="button button-danger" id="maze-play">Đi!!!</button>
+          <button class="button button-danger" id="maze-play">
+            Gét gô!!!!
+          </button>
         </div>
+      </div>
+
+      <div class="game-menu-footer">
+        <a href="#" onclick="toggleModal()">Chi tiết dự án</a>
       </div>
     </section>
 
@@ -79,12 +90,45 @@
       </div>
 
       <img src="./assets/images/DFS.png" alt="" class="maze-login-dfs" />
-      <img
-        src="./assets/images/PlayButton.png"
-        alt=""
-        class="maze-login-play-btn"
-        id="maze-login-play-btn"
-      />
+      <button class="maze-login-play-btn" id="maze-login-play-btn">
+        <strong>Play</strong>
+        <i class="fa-solid fa-play"></i>
+      </button>
+    </div>
+
+    <div class="modal" onclick="toggleModal()">
+      <div class="game-menu" onclick="event.stopPropagation()">
+        <div class="game-menu-header">
+          <h3>Những người thực hiện</h3>
+        </div>
+
+        <div class="game-menu-body">
+          <div class="game-menu-row">
+            <a href="https://github.com/thangved" target="_blank">
+              <img src="https://github.com/thangved.png" width="50" alt="" />
+            </a>
+            <span>Kim Minh Thắng</span>
+          </div>
+
+          <div class="game-menu-row">
+            <a href="https://github.com/huyluongme" target="_blank">
+              <img src="https://github.com/huyluongme.png" width="50" alt="" />
+            </a>
+            <span>Lương Đức Huy</span>
+          </div>
+
+          <div class="game-menu-row">
+            <a href="#">
+              <img
+                src="http://www.gravatar.com/avatar/?d=identicon"
+                width="50"
+                alt=""
+              />
+            </a>
+            <span>Nguyễn Huy Cường</span>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="./scripts/main.js"></script>
   </body>

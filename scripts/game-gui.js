@@ -80,13 +80,24 @@ class GameGui {
     this.drawRect(this.current);
     this.maze.startDfs();
     const steps = this.maze.steps;
+    const path = this.maze.path;
+    console.log(path);
 
     this.interval = setInterval(() => {
       const step = steps.shift();
 
       if (!step) {
         this.audio.win.play();
-        return clearInterval(this.interval);
+        clearInterval(this.interval);
+
+        this.interval = setInterval(() => {
+          const p = path.pop();
+          if (!p) return clearInterval(this.interval);
+
+          this.drawRect(p, "maze-success");
+        }, this.delay / 10);
+
+        return;
       }
 
       if (!step.pops?.length) this.audio.swimming.play();

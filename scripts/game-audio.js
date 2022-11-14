@@ -4,6 +4,7 @@ class GameAudio {
     this.theme = new Audio("../assets/audios/Theme.mp3");
     this.return = new Audio("../assets/audios/Return.mp3");
     this.win = new Audio("../assets/audios/Win.wav");
+    this.click = new Audio("../assets/audios/Click.wav");
 
     this.theme.loop = true;
   }

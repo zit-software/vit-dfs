@@ -17,6 +17,8 @@ function gameGenerate(width, height, delay) {
   });
 }
 
+gameGenerate();
+
 const acceptButton = document.getElementById("maze-accept");
 
 function handleAccept() {
@@ -41,6 +43,15 @@ document
   .addEventListener("click", gameGui.play.bind(gameGui));
 
 document.getElementById("maze-login-play-btn").addEventListener("click", () => {
-  document.getElementById("maze-login").classList.add("hide");
-  handleAccept();
+  gameGui.audio.click.play();
+  setTimeout(() => {
+    document.getElementById("maze-login").classList.add("hide");
+    handleAccept();
+  }, 500);
 });
+
+function toggleModal() {
+  document.querySelector(".modal").classList.toggle("show");
+}
+
+window.toggleModal = toggleModal;
