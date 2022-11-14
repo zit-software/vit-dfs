@@ -6,6 +6,8 @@ const HTMLInlineCSSWebpackPlugin =
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
+const InlineChunkHtmlPlugin = require("inline-chunk-html-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const path = require("path");
 
@@ -43,7 +45,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: "single",
-    minimizer: [new CssMinimizerPlugin()],
+    minimizer: [new CssMinimizerPlugin(), new UglifyJsPlugin()],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -60,11 +62,9 @@ module.exports = {
         },
       ],
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-      chunkFilename: "[id].[contenthash].css",
-    }),
+    new MiniCssExtractPlugin(),
     new HTMLInlineCSSWebpackPlugin(),
     new HtmlInlineScriptPlugin(),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime/]),
   ],
 };

@@ -42,10 +42,11 @@ window.addEventListener("load", () => {
     .getElementById("maze-login-play-btn")
     .addEventListener("click", () => {
       gameGui.audio.click.play();
+      gameGui.audio.theme.pause();
       setTimeout(() => {
         document.getElementById("maze-login").classList.add("hide");
         handleAccept();
-      }, 200);
+      }, 1000);
     });
 
   function toggleModal() {
