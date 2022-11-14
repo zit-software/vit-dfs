@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Kanit", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../assets/images/Land.png) repeat;
+  background-size: 50px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.maze-game {
+  position: relative;
+  background: url(../assets/images/Water.png) repeat;
+  background-size: 150px;
+  animation: sprite_bg 5s linear infinite;
+  border-radius: 10px;
+}
+
+.maze-row {
+  display: flex;
+}
+
+.maze-cell {
+  transition: 0.4s ease;
+}
+
+.maze-cell.maze-grass {
+  background: url(../assets/images/Grass.png) no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+@keyframes sprite_bg {
+  from {
+  }
+  to {
+    background-position: 100px 0;
+  }
+}
+
+.maze-character {
+  position: absolute;
+  background: url(../assets/images/Duck.png) no-repeat;
+  background-size: contain;
+  transition: 0.4s ease;
+  animation: sprite_character 1s infinite alternate;
+  filter: drop-shadow(0 2px 2px #00000050);
+}
+
+@keyframes sprite_character {
+  from {
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.maze-flag {
+  position: absolute;
+  background: url(../assets/images/FinishLine.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.maze-next {
+  background: #5010ff32;
+}
+
+.maze-pop {
+  background: #ff00005d;
+}
+
+.maze-success {
+  background: #2288008f;
+}
+
+.game-menu {
+  margin: 20px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 300px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 40px #00000020;
+}
+
+.game-menu-header {
+  padding: 10px 20px;
+  background: #00000005;
+  border-bottom: 1px solid #ddd;
+}
+
+.game-menu-body {
+  padding: 10px 20px;
+}
+
+.game-menu-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.game-menu span {
+  margin-left: 15px;
+}
+
+.game-menu-row + .game-menu-row {
+  border-top: 1px solid #ddd;
+}
+
+.game-menu-row input {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.game-menu-footer {
+  padding: 10px 20px;
+  background: #00000005;
+  border-top: 1px solid #ddd;
+}
+
+.game-menu-footer a {
+  color: #aaa;
+  text-align: center;
+  display: block;
+}
+
+.button {
+  padding: 10px 15px;
+  min-width: 150px;
+  color: #fff;
+  background: #5757ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 5px 0 #000039;
+  transition: 0.4s ease;
+}
+
+.button + .button {
+  margin-left: 10px;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:active {
+  box-shadow: 0 2px 0 #000039;
+  transform: translateY(3px);
+}
+
+.button-danger {
+  background: #ff1b6b;
+}
+
+.maze-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 1s ease;
+  clip-path: circle(100%);
+}
+
+.maze-login.hide {
+  clip-path: circle(0% at top center);
+}
+
+.maze-login-vit {
+  width: 20%;
+  animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-duck {
+  width: 10%;
+  animation: vit_animation 1s ease infinite alternate;
+}
+
+.maze-login-dfs {
+  width: 40%;
+  animation: dfs_animation 9.4s ease infinite alternate;
+}
+
+.maze-login-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maze-login-play-btn {
+  min-width: 150px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  margin-top: 20px;
+  padding: 12px;
+  font-weight: 900;
+  background: linear-gradient(#ceff1e, #2fd31a, #05a200);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 10px 0px #024400;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.maze-login-play-btn:active {
+  transform: translateY(8px);
+  box-shadow: 0 1px 0px #024400;
+}
+
+.maze-login-play-btn strong {
+  margin-right: 10px;
+}
+
+@keyframes vit_animation {
+  0%,
+  99% {
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes dfs_animation {
+  from {
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #000000aa;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal .game-menu {
+  height: auto;
+}
+
+.modal img {
+  border-radius: 100px;
+  margin-right: 10px;
+}
