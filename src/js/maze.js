@@ -89,12 +89,9 @@ class Maze {
     for (const nextState of next) {
       if (this.dfs(nextState)) return true;
 
-      this.steps.push({ current, nextStates: [], pops: [] });
+      this.steps.push({ current, nextStates: [], pops: [nextState] });
+      this.path.pop();
     }
-
-    this.steps.push({ current, nextStates: [], pops: [current] });
-
-    this.path.pop();
 
     return false;
   }
