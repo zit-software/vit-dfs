@@ -81,7 +81,6 @@ class GameGui {
     this.maze.startDfs();
     const steps = this.maze.steps;
     const path = this.maze.path;
-    console.log(path);
 
     this.interval = setInterval(() => {
       const step = steps.shift();
