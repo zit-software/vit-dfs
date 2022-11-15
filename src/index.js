@@ -13,7 +13,9 @@ window.addEventListener("load", () => {
     gameGui.init(maze, {
       cellSize: Math.min(
         (document.body.offsetHeight - 80) / cols,
-        (document.body.offsetWidth - 80) / rows
+        (document.body.offsetWidth - 80) / rows,
+        900 / cols,
+        900 / rows
       ),
       delay,
     });

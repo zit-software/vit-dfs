@@ -16,7 +16,96 @@
       <div class="maze-game" id="maze-game"></div>
     </section>
 
-    <section>
+    <section style="display: flex; flex-wrap: wrap">
+      <div>
+        <div class="game-menu">
+          <div class="game-menu-header">
+            <h3>Cài đặt</h3>
+          </div>
+          <div class="game-menu-body">
+            <div class="game-menu-row">
+              <label for="maze-width">Chiều rộng</label>
+
+              <input
+                type="range"
+                name="maze-width"
+                min="5"
+                max="50"
+                id="maze-width"
+                oninput="this.nextElementSibling.value = this.value"
+                value="10"
+              />
+
+              <output>10</output>
+            </div>
+
+            <div class="game-menu-row">
+              <label for="maze-height">Chiều cao</label>
+
+              <input
+                type="range"
+                name="maze-height"
+                min="5"
+                max="50"
+                id="maze-height"
+                oninput="this.nextElementSibling.value = this.value"
+                value="10"
+              />
+
+              <output>10</output>
+            </div>
+
+            <div class="game-menu-row">
+              <label for="maze-delay">Độ trễ</label>
+
+              <input
+                type="range"
+                name="maze-delay"
+                min="100"
+                max="10000"
+                id="maze-delay"
+                oninput="this.nextElementSibling.value = this.value"
+                value="500"
+              />
+
+              <output>500</output>
+            </div>
+
+            <div class="game-menu-row">
+              <button class="button" id="maze-accept">Áp dụng</button>
+              <button class="button button-danger" id="maze-play">
+                Gét gô!
+              </button>
+            </div>
+          </div>
+
+          <div class="game-menu-footer">
+            <a href="#" onclick="toggleModal()">Chi tiết dự án</a>
+          </div>
+        </div>
+        <div class="game-menu">
+          <div class="game-menu-header">
+            <h3>Thông tin</h3>
+          </div>
+
+          <div class="game-menu-body">
+            <div class="game-menu-row">
+              <strong>Vị trí hiện tại</strong>
+              <span id="maze-current-pos">-</span>
+            </div>
+
+            <div class="game-menu-row">
+              <strong>Độ dài đường đi</strong>
+              <span id="maze-current-len">-</span>
+            </div>
+
+            <div class="game-menu-row">
+              <strong>Bước đi sai</strong>
+              <span id="maze-current-error">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="game-menu">
         <div class="game-menu-header">
           <h3>Chú thích</h3>
@@ -70,69 +159,6 @@
             ></div>
             <span>Ô đang nằm trong ngăn xếp</span>
           </div>
-        </div>
-      </div>
-      <div class="game-menu">
-        <div class="game-menu-header">
-          <h3>Cài đặt</h3>
-        </div>
-        <div class="game-menu-body">
-          <div class="game-menu-row">
-            <label for="maze-width">Chiều rộng</label>
-
-            <input
-              type="range"
-              name="maze-width"
-              min="5"
-              max="50"
-              id="maze-width"
-              oninput="this.nextElementSibling.value = this.value"
-              value="10"
-            />
-
-            <output>10</output>
-          </div>
-
-          <div class="game-menu-row">
-            <label for="maze-height">Chiều cao</label>
-
-            <input
-              type="range"
-              name="maze-height"
-              min="5"
-              max="50"
-              id="maze-height"
-              oninput="this.nextElementSibling.value = this.value"
-              value="10"
-            />
-
-            <output>10</output>
-          </div>
-
-          <div class="game-menu-row">
-            <label for="maze-delay">Độ trễ</label>
-
-            <input
-              type="range"
-              name="maze-delay"
-              min="100"
-              max="10000"
-              id="maze-delay"
-              oninput="this.nextElementSibling.value = this.value"
-              value="500"
-            />
-
-            <output>500</output>
-          </div>
-
-          <div class="game-menu-row">
-            <button class="button" id="maze-accept">Áp dụng</button>
-            <button class="button button-danger" id="maze-play">Gét gô!</button>
-          </div>
-        </div>
-
-        <div class="game-menu-footer">
-          <a href="#" onclick="toggleModal()">Chi tiết dự án</a>
         </div>
       </div>
     </section>

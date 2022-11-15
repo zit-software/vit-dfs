@@ -82,6 +82,8 @@ class GameGui {
     this.maze.startDfs();
     const steps = this.maze.steps;
     const path = this.maze.path;
+    let len = 0;
+    let error = 0;
 
     this.interval = setInterval(() => {
       const step = steps.shift();
@@ -100,8 +102,14 @@ class GameGui {
         return;
       }
 
-      if (!step.pops?.length) this.audio.swimming.play();
-      else this.audio.return.play();
+      if (!step.pops?.length) {
+        len++;
+        this.audio.swimming.play();
+      } else {
+        len--;
+        error++;
+        this.audio.return.play();
+      }
 
       this.goto(step.current);
 
@@ -110,6 +118,13 @@ class GameGui {
       this.drawRects(step.nextStates, "maze-next");
 
       this.drawRects(step.pops, "maze-pop");
+
+      document.getElementById(
+        "maze-current-pos"
+      ).innerHTML = `(${step.current.join(", ")})`;
+
+      document.getElementById("maze-current-len").innerHTML = len;
+      document.getElementById("maze-current-error").innerHTML = error;
     }, this.delay);
   }
 }
