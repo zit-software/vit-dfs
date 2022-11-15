@@ -8,7 +8,6 @@
 
 html {
   font-family: "Kanit", sans-serif;
-  font-size: 12px;
 }
 
 body {
@@ -129,20 +128,20 @@ body {
   border-radius: 10px;
   overflow: hidden;
   min-width: 300px;
-  max-width: 100%;
   transition: 0.4s ease;
   box-shadow: 0 0 40px #00000020;
   height: auto;
+  flex: 1;
 }
 
 .game-menu-header {
-  padding: 5px 10px;
+  padding: 10px 20px;
   background: #00000005;
   border-bottom: 1px solid #ddd;
 }
 
 .game-menu-body {
-  padding: 5px 10px;
+  padding: 10px 20px;
 }
 
 .game-menu-row {
