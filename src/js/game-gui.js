@@ -55,29 +55,15 @@ class GameGui {
     // Recreate chart
     this.chart?.destroy();
     this.chart = new Chart(document.getElementById("maze-chart"), {
-      type: "line",
+      type: "bar",
       data: {
         datasets: [
           {
-            data: [0],
-            backgroundColor: "#00c7c0",
-            borderColor: "#00c7c0",
-            label: "Độ dài đường đi",
-            pointRadius: 0,
-            cubicInterpolationMode: "monotone",
-            borderWidth: 1,
-          },
-          {
-            data: [0],
-            backgroundColor: "#ff3084",
-            borderColor: "#ff3084",
-            label: "Số bước đi sai",
-            pointRadius: 0,
-            cubicInterpolationMode: "monotone",
-            borderWidth: 1,
+            data: [0, 0],
+            backgroundColor: ["#00c7c0", "#ff3084"],
           },
         ],
-        labels: [""],
+        labels: ["Độ dài đường đi", "Số bước đi sai"],
       },
       options: {
         animation: {
@@ -94,6 +80,12 @@ class GameGui {
             grid: {
               display: false,
             },
+          },
+        },
+
+        plugins: {
+          legend: {
+            display: false,
           },
         },
       },
@@ -170,10 +162,9 @@ class GameGui {
         "maze-current-pos"
       ).innerHTML = `(${step.current.join(", ")})`;
 
-      this.chart.data.labels.push("");
-
-      this.chart.data.datasets[0].data.push(len);
-      this.chart.data.datasets[1].data.push(error);
+      this.chart.data.datasets[0].data.pop();
+      this.chart.data.datasets[0].data.pop();
+      this.chart.data.datasets[0].data.push(len, error);
 
       this.chart.update();
     }, this.delay);
