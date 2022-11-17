@@ -1,11 +1,11 @@
 import Maze from "./maze.js";
 import GameAudio from "./game-audio.js";
+import { Chart } from "chart.js/auto";
 
 class GameGui {
   constructor(element, maze = new Maze(), { cellSize, delay } = {}) {
     this.audio = new GameAudio();
     this.element = element;
-
     this.init(maze, { cellSize, delay });
   }
 
@@ -51,6 +51,53 @@ class GameGui {
     this.character.style.height = this.cellSize + "px";
     this.element.append(this.character);
     this.render();
+
+    // Recreate chart
+    this.chart?.destroy();
+    this.chart = new Chart(document.getElementById("maze-chart"), {
+      type: "line",
+      data: {
+        datasets: [
+          {
+            data: [0],
+            backgroundColor: "#00c7c0",
+            borderColor: "#00c7c0",
+            label: "Độ dài đường đi",
+            pointRadius: 0,
+            cubicInterpolationMode: "monotone",
+            borderWidth: 1,
+          },
+          {
+            data: [0],
+            backgroundColor: "#ff3084",
+            borderColor: "#ff3084",
+            label: "Số bước đi sai",
+            pointRadius: 0,
+            cubicInterpolationMode: "monotone",
+            borderWidth: 1,
+          },
+        ],
+        labels: [""],
+      },
+      options: {
+        animation: {
+          y: { duration: 0 },
+        },
+
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+      },
+    });
   }
 
   render() {
@@ -123,8 +170,12 @@ class GameGui {
         "maze-current-pos"
       ).innerHTML = `(${step.current.join(", ")})`;
 
-      document.getElementById("maze-current-len").innerHTML = len;
-      document.getElementById("maze-current-error").innerHTML = error;
+      this.chart.data.labels.push("");
+
+      this.chart.data.datasets[0].data.push(len);
+      this.chart.data.datasets[1].data.push(error);
+
+      this.chart.update();
     }, this.delay);
   }
 }
