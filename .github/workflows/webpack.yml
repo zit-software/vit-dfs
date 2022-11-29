@@ -25,4 +25,4 @@ jobs:
     - name: Build
       run: |
         yarn
-        npx webpack
+        npx webpack --mode=production
