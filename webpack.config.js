@@ -24,13 +24,13 @@ module.exports = (env, argv) => {
     entry: "./src/index.js",
     output: {
       filename: "[name].[contenthash].js",
-      path: path.resolve(__dirname, "./docs"),
+      path: path.resolve(__dirname, "./build"),
       publicPath: "",
     },
 
     devServer: {
       static: {
-        directory: path.join(__dirname, "./docs"),
+        directory: path.join(__dirname, "./build"),
       },
       compress: true,
       port: 9000,
