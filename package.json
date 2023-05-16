@@ -21,8 +21,8 @@
     "html-webpack-plugin": "^5.5.0",
     "inline-chunk-html-plugin": "^1.1.1",
     "mini-css-extract-plugin": "^2.7.2",
-    "terser-webpack-plugin": "^5.3.6",
     "webpack": "^5.76.3",
+    "terser-webpack-plugin": "^5.3.7",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
