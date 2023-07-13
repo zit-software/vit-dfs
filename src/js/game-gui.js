@@ -10,9 +10,6 @@ class GameGui {
   }
 
   init(maze = new Maze(), { cellSize = 50, delay = 500 } = {}) {
-    try {
-      this.audio.theme.play();
-    } catch (error) {}
     clearInterval(this.interval);
     // Init values
     this.cellSize = cellSize;

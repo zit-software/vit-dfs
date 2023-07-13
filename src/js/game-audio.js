@@ -12,7 +12,23 @@ class GameAudio {
     this.win = new Audio(win);
     this.click = new Audio(click);
 
+    this.swimming.muted =
+      this.theme.muted =
+      this.return.muted =
+      this.win.muted =
+      this.click.muted =
+        true;
+
     this.theme.loop = true;
+  }
+
+  enable() {
+    this.swimming.muted =
+      this.theme.muted =
+      this.return.muted =
+      this.win.muted =
+      this.click.muted =
+        false;
   }
 }
 

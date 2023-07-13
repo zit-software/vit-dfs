@@ -271,6 +271,11 @@ body {
   font-size: 20px;
 }
 
+.maze-login-play-btn.secondary {
+  background: linear-gradient(#ff1b6b, #ff1b6b, #ff1b6b);
+  box-shadow: 0 10px 0px #a2003a;
+}
+
 .maze-login-play-btn:active {
   transform: translateY(8px);
   box-shadow: 0 1px 0px #024400;
