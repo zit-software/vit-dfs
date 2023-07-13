@@ -43,8 +43,18 @@ window.addEventListener("load", () => {
   document
     .getElementById("maze-login-play-btn")
     .addEventListener("click", () => {
+      gameGui.audio.enable();
       gameGui.audio.click.play();
-      gameGui.audio.theme.pause();
+      gameGui.audio.theme.play();
+      setTimeout(() => {
+        document.getElementById("maze-login").classList.add("hide");
+        handleAccept();
+      }, 500);
+    });
+
+  document
+    .getElementById("maze-login-play-btn-without-sound")
+    .addEventListener("click", () => {
       setTimeout(() => {
         document.getElementById("maze-login").classList.add("hide");
         handleAccept();

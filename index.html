@@ -164,10 +164,20 @@
       </div>
 
       <img src="./assets/images/DFS.png" alt="" class="maze-login-dfs" />
-      <button class="maze-login-play-btn" id="maze-login-play-btn">
-        <strong>Play</strong>
-        <i class="fa-solid fa-play"></i>
-      </button>
+      <div class="d-flex">
+        <button class="maze-login-play-btn" id="maze-login-play-btn">
+          <strong>Play</strong>
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <button
+          class="maze-login-play-btn secondary"
+          id="maze-login-play-btn-without-sound"
+        >
+          <strong>Play</strong>
+          <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+      </div>
     </div>
 
     <div class="modal" onclick="toggleModal()">
